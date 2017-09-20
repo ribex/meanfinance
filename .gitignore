@@ -58,6 +58,6 @@ typings/
 .env
 
 # mongodb 
-.0
-.ns
-.lock
+*.0
+*.ns
+*.lock
