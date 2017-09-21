@@ -61,3 +61,6 @@ typings/
 *.0
 *.ns
 *.lock
+
+# api
+config.js
