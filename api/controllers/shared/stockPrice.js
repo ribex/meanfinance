@@ -1,6 +1,10 @@
 var https = require('https');
-var _apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=3KZ8QLDN95EF7RNO&outputsize=compact"
 
+//see README for how to set up config.js file
+
+var config = require('./config');
+
+var _apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=" + config + "&=compact"
 module.exports.getPrice = function(req, res, symbol) {
   
   var url = _apiUrl + "&symbol=" + symbol
