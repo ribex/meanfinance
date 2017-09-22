@@ -1,6 +1,6 @@
-<h1>Find Stocks</h1>
+<h1>Deposit Funds</h1>
 <div ng-if="vm.message" class="alert alert-success" role="alert">
-  <p>{{ vm.message }}</p>
+  <p>{{ vm.message }}{{ vm.balance + vm.amount | currency }}</p>
 </div>
 <div ng-if="vm.error" class="alert alert-danger" role="alert">
   {{ vm.error }}
