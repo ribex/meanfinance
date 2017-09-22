@@ -28,6 +28,15 @@ module.exports.stocksGetPrice = function(req, res) {
 
 }
 
+function Symbols(res) {
+    var newJson = []
+    res.forEach(function(ele) {
+        newJson.push(ele["_id"])
+    })
+
+    return newJson.sort();
+}
+
 module.exports.getAll = function(req, res) {
     console.log('getting all sysmbols')
     Stock
@@ -39,10 +48,10 @@ module.exports.getAll = function(req, res) {
                     .status(400)
                     .json(err);
             } else {
-                console.log('symbols found', syms)
+                console.log('symbols found')
                 res
                     .status(200)
-                    .json(syms);
+                    .json(Symbols(syms));
             }
         })
 }
