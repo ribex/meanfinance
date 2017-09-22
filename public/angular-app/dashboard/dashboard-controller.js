@@ -11,10 +11,10 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
       vm.stocks = response.data;
     }).catch(function(error) {
       console.log(error);
-    })
+    });
     $http.get('/api/users/' + username).then(function(response) {
-      vm.balance = response.data
-    })
+      vm.balance = response.data;
+    });
   } else {
     $location.path('/');
   }
