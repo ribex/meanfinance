@@ -1,0 +1,33 @@
+body {
+    background-color: #D6E5E3;
+}
+
+.top {
+    margin-top:50px;
+}
+
+.gray {
+    background-color:#7C7287 !important;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.gray-little {
+    background-color:#7C7287 !important;
+    color: white;
+}
+
+.blue-green {
+    background-color:#119DA4 !important;
+    color: white;  
+    border: none;
+}
+
+.a active {
+    color: #119DA4 !important;
+}
