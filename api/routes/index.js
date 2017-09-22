@@ -13,7 +13,7 @@ router
 router
   .route('/users/:username/stocks/:symbol')
   // .get(boughtStocksCtrl.bStocksGetOne) // currently no data need for single display
-  // .post(boughtStocksCtrl.bstockBuy)
+  //.post(boughtStocksCtrl.bstockBuy)
   .delete(boughtStocksCtrl.bStocksSellAll) // sell all stocks
   
 router

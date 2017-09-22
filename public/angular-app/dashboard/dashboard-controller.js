@@ -6,6 +6,7 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
     var token = $window.sessionStorage.token;
     var decodedToken = jwtHelper.decodeToken(token);
     var username = decodedToken.username;
+    var symbol = 'FB';
     
     $http.get('/api/users/'+ username +"/stocks").then(function(response) {
       vm.stocks = response.data;
@@ -13,8 +14,11 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
       console.log(error);
     });
     $http.get('/api/users/' + username).then(function(response) {
-      vm.balance = response.data;
-    });
+      vm.balance = response.data
+    })
+    $http.get('/api/stocks/' + symbol).then(function(response) {
+      vm.prices = response.data
+    })
   } else {
     $location.path('/');
   }

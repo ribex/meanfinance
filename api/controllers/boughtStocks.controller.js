@@ -161,4 +161,3 @@ module.exports.bStocksSellAll = function(req, res) {
       }
     });
 }
-
