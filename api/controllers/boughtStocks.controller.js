@@ -64,7 +64,7 @@ module.exports.bStocksBuy = function(req, res) {
           .json({"message" : "Stock not valid"});
       } else {
         //stock is valid. get the stocks price.)
-        var price = stockPrice.returnPrice(symbol);
+        var price = stock["lastSale"];
         var cost = parseInt(req.body.amount) * price;
         
         //find the user
@@ -85,11 +85,16 @@ module.exports.bStocksBuy = function(req, res) {
                   .status(200)
                   .json(json);
               } else {
+                userBalance -= cost
+                console.log(userBalance)
                 // enough funds Buy the stock
                 var stocks = user.stocks
                 stocks.push({
                   _id : symbol,
                   amount : req.body.amount
+                })
+                user.set ({
+                  balance: userBalance
                 })
                 user.save(function(err, userUpdated) {
                   if (err) {

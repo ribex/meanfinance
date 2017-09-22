@@ -42,6 +42,7 @@ module.exports.getPrice = function(req, res, symbol) {
 module.exports.returnPrice = function(symbol) {
   var url = _apiUrl + "&symbol=" + symbol
   console.log(url);
+  var thePrice;
   var request = https.get(url, function (response) {
     // data is streamed in chunks from the server
     // so we have to handle the "data" event    
@@ -63,7 +64,8 @@ module.exports.returnPrice = function(symbol) {
         // console.log(data);
         var stockData = data['Time Series (Daily)']
         var keys = Object.keys(stockData);
-        return parseFloat(stockData[keys[0]]['4. close']);
+        thePrice = parseFloat(stockData[keys[0]]['4. close']);
+        return thePrice
       }
     }); 
   }); 
