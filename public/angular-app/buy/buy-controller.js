@@ -9,13 +9,25 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var decodedToken = jwtHelper.decodeToken(token);
       var username = decodedToken.username;
       
-      var data = {"symbol" : vm.symbol, "amount": vm.amount}
+      var data = {"symbol" : vm.symbol, "amount": vm.amount};
+      var dataBalance = {"balance" : vm.balance};
+      
+      $http.get('/api/users/' + username).then(function(response) {
+        vm.balance = response.data;
+      })
       
       $http.post('/api/users/'+ username +"/stocks", data).then(function(response) {
         //check the responses
       }).catch(function(error) {
         console.log(error);
       })
+      
+      $http.post('/api/users/'+ username, data).then(function(response) {
+        //check the responses
+      }).catch(function(error) {
+        console.log(error);
+      })
+      
     } else {
       $location.path('/');
     }
